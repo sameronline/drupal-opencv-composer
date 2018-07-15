@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+  php:
+    environment:
+      PHP_XDEBUG: 1 # xdebug
+      PHP_XDEBUG_DEFAULT_ENABLE: 0 # xdebug
+      PHP_XDEBUG_IDEKEY: 'PHPSTORM' # xdebug: Use your editor key here
+      PHP_XDEBUG_REMOTE_AUTOSTART: 0 #xdebug
+      PHP_XDEBUG_REMOTE_CONNECT_BACK: 0 # xdebug
+      PHP_XDEBUG_REMOTE_HOST: host.docker.internal # Docker 18.03+ & Linux/Mac/Win
+#     PHP_XDEBUG_REMOTE_HOST: 172.17.0.1 # Linux, Docker < 18.03
+#     PHP_XDEBUG_REMOTE_HOST: 10.254.254.254 # macOS, Docker < 18.03
+#     PHP_XDEBUG_REMOTE_HOST: 10.0.75.1 # Windows, Docker < 18.03
+      PHP_XDEBUG_PROFILER_OUTPUT_DIR: /mnt/files/xdebug/profiler # xdebug
+      PHP_XDEBUG_TRACE_OUTPUT_DIR: /mnt/files/xdebug/traces # xdebug
+      PHP_XDEBUG_MAX_NESTING_LEVEL: 500

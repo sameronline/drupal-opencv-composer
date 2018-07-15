@@ -1,0 +1,9 @@
+version: "2"
+
+services:
+  php:
+    user: root # windows-permission-fix
+    command: "php-fpm -R" # windows-permission-fix
+    environment:
+      PHP_FPM_USER: root # windows-permission-fix
+      PHP_FPM_GROUP: root # windows-permission-fix

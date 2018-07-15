@@ -56,6 +56,16 @@
         ],
         "post-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "env-docker": [
+            "rm -f .env",
+            "cp docker/.env.docker .env",
+	    "rm -f web/sites/default/settings.local.php",
+	    "cp docker/drupal.settings.php web/sites/default/settings.local.php"
+        ],
+        "env-opencv-dev": [
+            "@composer config repositories.local_opencv path /web/profiles/contrib/opencv",
+            "@composer require 'samerali/opencv:*' --no-progress"
         ]
     },
     "extra": {

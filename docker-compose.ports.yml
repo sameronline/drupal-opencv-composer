@@ -1,0 +1,6 @@
+version: "2"
+
+  traefik:
+    ports:
+      - '6736:80'
+      - '6737:8080' # Dashboard
