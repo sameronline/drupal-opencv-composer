@@ -5,6 +5,7 @@ include .env
 default: up
 
 DRUPAL_ROOT ?= /var/www/html/web
+DOCKER_COMPOSE_FILES ?= -f docker-compose.yml -f docker-compose.ports.yml -f docker-compose.win.yml -f docker-compose.xdebug.yml
 
 up:
 	@echo "Starting up containers for $(PROJECT_NAME)..."
