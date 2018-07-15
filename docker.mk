@@ -8,8 +8,8 @@ DRUPAL_ROOT ?= /var/www/html/web
 
 up:
 	@echo "Starting up containers for $(PROJECT_NAME)..."
-	docker-compose pull --parallel
-	docker-compose up -d --remove-orphans
+	docker-compose $(DOCKER_COMPOSE_FILES) pull --parallel
+	docker-compose $(DOCKER_COMPOSE_FILES) up -d --remove-orphans
 
 down: stop
 
@@ -31,7 +31,7 @@ drush:
 	docker exec $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") drush -r $(DRUPAL_ROOT) $(filter-out $@,$(MAKECMDGOALS))
 
 logs:
-	@docker-compose logs -f $(filter-out $@,$(MAKECMDGOALS))
+	@docker-compose $(DOCKER_COMPOSE_FILES) logs -f $(filter-out $@,$(MAKECMDGOALS))
 
 # https://stackoverflow.com/a/6273809/1826109
 %:
