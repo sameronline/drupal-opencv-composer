@@ -1,5 +1,6 @@
 version: "2"
 
+services:
   traefik:
     ports:
       - '6736:80'
